@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_Relations_airline", "EF_Relations_airline\EF_Relations_airline.csproj", "{4C0DE53E-4963-4BBC-ABAB-C17C2FBC1E64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_airline", "WPF_airline\WPF_airline.csproj", "{21789F2C-9F34-432F-B522-E3D5D28A54DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C0DE53E-4963-4BBC-ABAB-C17C2FBC1E64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C0DE53E-4963-4BBC-ABAB-C17C2FBC1E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C0DE53E-4963-4BBC-ABAB-C17C2FBC1E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C0DE53E-4963-4BBC-ABAB-C17C2FBC1E64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21789F2C-9F34-432F-B522-E3D5D28A54DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21789F2C-9F34-432F-B522-E3D5D28A54DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21789F2C-9F34-432F-B522-E3D5D28A54DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21789F2C-9F34-432F-B522-E3D5D28A54DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0CE1553-31B9-4BCC-A94C-D014CA72867F}
+	EndGlobalSection
+EndGlobal
