@@ -17,6 +17,7 @@ namespace WPF_airline
     public class ViewModel : INotifyPropertyChanged
     {
         private ApplicationContext db = null;
+        private DbContextOptions<ApplicationContext> options = null;
         public ViewModel()
         {
             searchAirline = new((o) => Search(), (с) =>IsButtonEnabled == true);
@@ -29,11 +30,8 @@ namespace WPF_airline
             string connectionString = config.GetConnectionString("MyDbConnection");
 
             var optionBuilder = new DbContextOptionsBuilder<ApplicationContext>();
-            var options = optionBuilder.UseSqlServer(connectionString).Options;
-            db = new ApplicationContext(options);
-
-
-
+            options = optionBuilder.UseSqlServer(connectionString).Options;
+            
         }
         private DateTime selectedDate;
         public DateTime SelectedDate
@@ -77,8 +75,23 @@ namespace WPF_airline
         public ICommand SearchAirline => searchAirline;
         public void Search()
         {
-            //SelectedBook = books[books.IndexOf(SelectedBook) + 1];
-            MessageBox.Show("IT WORKS");
+            using (db = new ApplicationContext(options))
+            {
+                var aviaraces = db.Flights.Where(x => x.ArrivalDate.Day == selectedDate.Day && x.ArrivalDate.Month == selectedDate.Month && x.ArrivalDate.Year == selectedDate.Year && x.ArrivalPlace == enteredText).Select(p => new
+                {
+                    p.Id,
+                    p.Number,
+                    p.DepartureDate,
+                    p.ArrivalDate,
+                    p.DeparturePlace,
+                    p.ArrivalPlace,
+                    p.Airplane.Model,
+                }).ToList();
+
+                AirlineListWindow resultWindow = new AirlineListWindow();
+                resultWindow.dataGrid.ItemsSource = aviaraces;
+                resultWindow.ShowDialog();
+            }
         }
     }
 }
