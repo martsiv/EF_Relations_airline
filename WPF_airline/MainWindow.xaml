@@ -4,9 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_airline"
+        d:DataContext="{d:DesignInstance Type=local:ViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
 
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Border Margin="20">
+            <StackPanel>
+                <TextBlock HorizontalAlignment="Center" FontSize="20">Rivne's airline:</TextBlock>
+                <TextBlock>Enter date and place:</TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock Margin="10, 0">Select date</TextBlock>
+                    <DatePicker x:Name="dataPicker" SelectedDate="{Binding SelectedDate, Mode=TwoWay}"></DatePicker>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock Margin="10, 0">Enter place</TextBlock>
+                    <TextBox x:Name="textBox" HorizontalAlignment="Stretch" MinWidth="100" Text="{Binding EnteredText, Mode=TwoWay}"></TextBox>
+                </StackPanel>
+                <Button MaxWidth="50" MaxHeight="100" MinHeight="15" MinWidth="20" Command="{Binding SearchAirline}" >
+                    Search
+                </Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
